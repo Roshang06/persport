@@ -3,11 +3,11 @@ import About from '@/components/About';
 import Footer from '@/components/Footer';
 
 export default function HomePage() {
-    return (
-      <>
-        <Hero />
-        <About />
-        <Footer />
-      </>
-    );
+  return (
+    <div className="md:ml-20">
+      <Hero />
+      <About />
+      <Footer />
+    </div>
+  );
 }
