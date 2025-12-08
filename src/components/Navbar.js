@@ -45,18 +45,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Dark Mode Toggle */}
-          <div className="px-4">
-            <button
-              onClick={() => setDarkMode(!darkMode)}
-              className="flex items-center space-x-4 px-4 py-3 rounded-xl text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all w-full"
-            >
-              <div className="text-xl flex-shrink-0">{darkMode ? '🌙' : '☀️'}</div>
-              <span className={`text-sm font-medium whitespace-nowrap transition-all duration-300 ${isExpanded ? 'opacity-100 w-auto' : 'opacity-0 w-0 overflow-hidden'}`}>
-                {darkMode ? 'Dark' : 'Light'}
-              </span>
-            </button>
-          </div>
         </div>
       </nav>
 
@@ -64,7 +52,7 @@ export default function Navbar() {
       <div className="md:hidden fixed top-0 left-0 right-0 bg-gray-900/80 backdrop-blur-xl border-b border-gray-800 z-50">
         <div className="flex items-center justify-between px-6 py-4">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gray-600 to-gray-800 flex items-center justify-center">
-            <span className="text-white font-bold text-xl">P</span>
+            <span className="text-white font-bold text-xl">RG</span>
           </div>
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -104,13 +92,7 @@ export default function Navbar() {
                     </div>
                   </Link>
                 ))}
-                <button
-                  onClick={() => setDarkMode(!darkMode)}
-                  className="flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-400 hover:text-white hover:bg-gray-800/50 transition-colors w-full"
-                >
-                  <span className="text-xl">{darkMode ? '🌙' : '☀️'}</span>
-                  <span>{darkMode ? 'Dark Mode' : 'Light Mode'}</span>
-                </button>
+                
               </div>
             </motion.div>
           )}

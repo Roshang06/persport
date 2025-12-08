@@ -6,28 +6,32 @@ import Image from 'next/image';
 export default function ProjectsPage() {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard.',
-      image: 'file.svg',
-      tags: ['Next.js', 'Stripe', 'PostgreSQL']
+      title: "Seema's Cafe",
+      description: "A professional landing page for Seema's cafe located on Lake Sammamish Road.",
+      Link: "https://seema-official-website.vercel.app/",
+      image: '/seema.png',
+      tags: ['Next.js']
     },
     {
-      title: 'AI Chat Application',
-      description: 'Real-time chat application powered by OpenAI GPT-4 with context-aware conversations and message history.',
-      image: 'file.svg',
-      tags: ['React', 'OpenAI', 'WebSocket']
+      title: 'Resume Builder Web-App',
+      description: 'A prototype web app made with React that guides users through creating a professional resume quickly and easily.',
+      Link: "https://github.com/Roshang06/ResBuilder",
+      image: '/resumeb.png',
+      tags: ['React', 'Firebase']
     },
     {
-      title: 'Task Management Tool',
-      description: 'Collaborative project management platform with kanban boards, time tracking, and team analytics.',
-      image: 'file.svg',
-      tags: ['TypeScript', 'Node.js', 'MongoDB']
+      title: '2D Platformer Game',
+      description: 'As part of my role as President of Game Design club in HS, we created a 2D platformer using Unity and C#.',
+      Link: "https://drive.google.com/drive/folders/1jX_HtMIh5nHIQb_WErqFUNEd-DVQSrrF?usp=drive_link",
+      image: '/g.png',
+      tags: ['Unity', 'C#']
     },
     {
-      title: 'Weather Dashboard',
-      description: 'Beautiful weather forecasting app with interactive maps, historical data, and severe weather alerts.',
-      image: 'file.svg',
-      tags: ['React', 'D3.js', 'Weather API']
+      title: 'Hobby RC-Car',
+      description: 'An RC-car printed with PLA, with an SG90 servo, 2 brushless motors, and a raspberry pi controlled remotely over Wifi',
+      Link: "https://cad.onshape.com/documents/623744e0a40e4d23a34f392a/w/9060012aedf18c98b4809af4/e/1bb00d9469202f2b5905caed?renderMode=0&uiState=693657e40ed4b1c7e5c38876",
+      image: '/rccar.png',
+      tags: ['OnShape', 'Python']
     }
   ];
 
@@ -46,15 +50,15 @@ export default function ProjectsPage() {
             Projects
           </h1>
           <p className="flex justify-center text-xl text-gray-400 mb-16">
-            A selection of my recent work
+            Click each card to learn more
           </p>
         </motion.div>
         
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
+            <a href={project.Link} target="_blank" rel="noopener noreferrer" key={project.title}>
             <motion.div
-              key={project.title}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -97,6 +101,7 @@ export default function ProjectsPage() {
                 </div>
               </div>
             </motion.div>
+            </a>
           ))}
         </div>
       </div>
