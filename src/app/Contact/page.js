@@ -12,7 +12,7 @@ export default function ContactPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // Handle form submission here
+    // Handle form submission here TODO later
   };
 
   return (
