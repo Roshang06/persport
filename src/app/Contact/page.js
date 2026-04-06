@@ -9,10 +9,27 @@ export default function ContactPage() {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here TODO later
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      setFormData({ email: '', message: '' });
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Failed to submit form. Please try again.');
+    }
   };
 
   return (
@@ -68,14 +85,18 @@ export default function ContactPage() {
               />
             </div>
 
-            <motion.button
-              onClick={handleSubmit}
+            <motion.div
               whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-900 rounded-xl text-white font-medium hover:shadow-lg hover:shadow-gray-900/50 transition-shadow"
+              whileTap={{ scale: 0.98}}
             >
-              Send Message
-            </motion.button>
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className="w-full px-8 py-4 bg-gradient-to-r from-gray-700 to-gray-900 rounded-xl text-white font-medium hover:shadow-lg hover:shadow-gray-900/50 transition-shadow"
+              >
+                Send Message
+              </button>
+            </motion.div>
           </div>
 
           <div className="mt-8 pt-8 border-t border-gray-800">

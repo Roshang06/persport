@@ -1,6 +1,6 @@
 import Hero from "@/components/Hero";
-import About from '@/components/About';
 import Footer from '@/components/Footer';
+import About from '@/components/About';
 
 export default function HomePage() {
   return (
